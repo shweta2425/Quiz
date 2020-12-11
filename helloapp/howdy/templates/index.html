@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Quiz Exam</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/style.css" >
+
+        <script>
+            $(document).ready(function(){
+            $("#but1").click(function(){
+            $(".rb").show();
+            $(".rb").attr("disabled",true);
+            });
+            });
+
+            function getanswer(){
+            document.getElementById("UserAnswer").innerHTML = "";
+            var e = document.getElementsByTagName("input");
+            for(i = 0; i<=e.length; i++ )
+            {
+                if(e[i].type == "radio")
+                {
+                    if(e[i].checked)
+                    {
+                        document.getElementById("UserAnswer").innerHTML+= "Q."+ e[i].name+" The Answer You Have Selected is :"+ e[i].value+"<br>";
+                    }
+                }
+
+            }
+
+            }
+
+
+        </script>
+
+
+</head>
+
+<body style="background-color: #f1f1f1;">
+<center style="color:green;"><h5 class="mt-3">Online Quiz Exam</h5></center>
+<h5 style="margin-top: -30px;margin-left: 1150;"><a  href = "{% url 'template2' %}">Test 2</a></h5>
+    <div style="padding-left: 30px;" class="container">
+        <div>
+
+            <hr>
+        {% for i in res %}
+            <div style="padding: 15px; border-radius: 4px; box-shadow: 2px 2px 4px rgba(0,0,0,0.2); margin-bottom: 15px; background-color: #fff;">
+                <table>
+                <tr>
+                    <td class="text-primary" style="margin-bottom: 10px">{{i.id }} ) {{i.question}} ? </td>
+                </tr>
+
+                <tr>
+                    <td><input type="radio"  class="rb" name={{i.id}} id="option1" value="{{i.option1}}">{{i.option1}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio"  class="rb" name={{i.id}} id="option2" value="{{i.option2}}">{{i.option2}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio"  class="rb" name={{i.id}} id="option3" value="{{i.option3}}">{{i.option3}}</td>
+                </tr>
+                <tr>
+                    <td style="margin-bottom: 10px"><input type="radio"  class="rb" name={{i.id}} id="option4" value="{{i.option4}}">{{i.option4}}</td>
+                </tr>
+                <tr style="margin-top: 10px">
+                    <td><label id="ans" class="rb" style="display:none; color:green;"><b>{{i.answer}}</b></label></td>
+                </tr>
+            </table>
+
+            </div>
+
+
+        {% endfor %}
+        <center><input type="submit" class="btn btn-success" value="Submit Answers" id="but1" onclick="getanswer()"/></center>
+        <br>
+            <b id="UserAnswer"></b>
+        </div>
+    </div>
+</body>
+</html>
