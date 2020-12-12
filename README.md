@@ -31,3 +31,16 @@
   or open
    http://127.0.0.1:8000/
 
+# django-quiz-app
+It is django based quiz app for multiple choice questions.
+
+
+### Snaps of project 
+  Multiple Choice quiz:
+  
+  ![alt text](https://github.com/shweta2425/Quiz/blob/main/screenshots/Screenshot1.png "")
+  <br>
+  
+  Short Answer Quiz:
+  ![alt text](https://github.com/shweta2425/Quiz/blob/main/screenshots/Screenshot3.png "")
+  <br>
