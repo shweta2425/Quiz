@@ -42,5 +42,5 @@ It is django based quiz app for multiple choice questions.
   <br>
   
   Short Answer Quiz:
-  ![alt text](https://github.com/shweta2425/Quiz/blob/main/screenshots/Screenshot3.png "")
+  ![alt text](https://github.com/shweta2425/Quiz/blob/main/screenshots/Screenshot7.png "")
   <br>
